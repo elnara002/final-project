@@ -1,0 +1,38 @@
+footer {
+    background-color: black;
+    padding: 50px 0;
+
+    ul {
+        li {
+            list-style: none;
+            color: white;
+
+            a {
+                text-decoration: none;
+                color: white;
+
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+.contact {
+    a {
+        text-decoration: none;
+        color: white;
+
+        i {
+            margin-right: 10px;
+            font-size: 23px;
+            color: rgb(216, 26, 36);
+
+            &:hover {
+                color: white;
+            }
+
+        }
+    }
+}

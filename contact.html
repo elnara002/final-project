@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <header>
+        <!-- NavBar Start -->
+        <nav class="navbar navbar-expand-lg navbar-dark p-2">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logomoov.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse ms-3 " id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="movies.html">Movies</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-2 dropdown-toggle active" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Company
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                                <li><a class="dropdown-item " href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="#">Watchlist
+                                <span class="badge bg-danger">4</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="ms-auto  d-lg-inline-flex">
+                        <a href="login.html"><button class="btn text-white" id="login">Log in</button></a>
+                        <a href="register.html"><button class="btn btn-red rounded-pill mx-2">
+                                Sign up
+                            </button></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- NavBar End -->
+        <!-- Slogan -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-8 slogan d-flex flex-column justify-content-center ms-4">
+                    <h1 class="text-white fw-bolder">
+                        <p> Contact Informations</p>
+                        <p>Contact Us</p>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- NeW Section Contact us -->
+    <section class="pb-4">
+        <div class="section-head d-flex align-items-center justify-content-center flex-column position-relative">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <form class="row g-3">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <label for="inputEmail4" class="form-label">First Name</label>
+                            <input type="email" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <label for="inputPassword4" class="form-label">Last Name</label>
+                            <input type="password" class="form-control" id="inputPassword4">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <label for="inputCity" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <label for="inputCity" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="form-floating">
+                            Message
+                            <textarea class="form-control" placeholder="Message" id="floatingTextarea"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-danger px-4">Send</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="contact-card">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Post Address</span>
+                            <h6 class="my-1"><a href="tel:+1 800 603 6035">The Company Name Inc.9863 - 9867 Mill Road,
+                                    Cambridge, MG09 99HT.</a>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="contact-card">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Phone</span>
+                            <h6 class="my-1"><a href="tel:+1 800 603 6035"> +1 800 603 6035 </a>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="contact-card">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Email</span>
+                            <h6 class="my-1"><a href="mailto:mail@demolink.org">mail@demolink.org</a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Start -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <a href="index.html"><img src="images/logomoov.png" alt=""></a>
+                    <p class="text-white mt-4">It is a long established fact that a reader will be distracted by the
+                        readable content of a page when looking at its layout.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <ul>
+                        <li>
+                            <h5>Company</h5>
+                        </li>
+                        <li><a href="movies.html">Movies</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <ul>
+                        <li>
+                            <h5>Services</h5>
+                        </li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 contact">
+                    <div class="d-flex">
+                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+
+                    </div>
+                    <a href="tel:+1 800 603 6035"> +1 800 603 6035 </a>
+                    <a href="mailto:mail@demolink.org"> mail@demolink.org </a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="end mt-5 d-flex justify-content-center align-items-center text-white">
+            <h5>© 2023 All Rights Reserved. Terms of Use.</h5>
+        </div>
+    </footer>
+
+
+
+
+    <script src=" https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"
+        integrity="sha512-2sI5N95oT62ughlApCe/8zL9bQAXKsPPtZZI2KE3dznuZ8HpE2gTMHYzyVN7OoSPJCM1k9ZkhcCo3FvOirIr2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

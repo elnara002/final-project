@@ -1,0 +1,32 @@
+.login-card {
+    width: 33%;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(10, 32, 54);
+    box-shadow: 5px 3px 10px 3px rgb(10, 36, 63);
+
+    .enter {
+        width: 80%;
+        border-radius: 8px;
+        border: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+.login {
+    background-color: rgb(248, 249, 250);
+}
+
+.name {
+    width: 45%;
+    border-radius: 8px;
+    border: none;
+}

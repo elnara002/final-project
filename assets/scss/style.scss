@@ -1,0 +1,17 @@
+@import 'partials/header';
+@import 'partials/films';
+@import 'partials/partners';
+@import 'partials/comments';
+@import 'partials/footer';
+@import 'partials/contact';
+@import 'partials/login';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg-blue {
+    background-color: rgb(5, 15, 32);
+}

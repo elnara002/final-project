@@ -1,0 +1,79 @@
+.btn-red {
+    background-color: rgb(216, 26, 36);
+    color: white;
+
+    &:hover {
+        background-color: transparent;
+        color: red;
+        transition: 0.4s;
+    }
+}
+
+#login {
+    &:hover {
+        background-color: rgb(18, 132, 178);
+        border-radius: 20px;
+        transition: 0.6s;
+    }
+}
+
+.nav-item {
+    a {
+        &:hover {
+            color: red !important;
+            transition: 0.7s;
+        }
+    }
+
+    .active {
+        border-bottom: 1px solid rgb(216, 26, 36);
+    }
+
+    .dropdown-item {
+        background-color: white;
+    }
+
+    .nav-link {
+        color: white !important;
+    }
+}
+
+#searchInp {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 3px 1px 8px 0px rgb(197, 197, 197);
+    background-color: rgb(123, 138, 250);
+    opacity: 0.7;
+
+}
+
+.fa-solid {
+    top: 25%;
+    right: 3%;
+}
+
+header {
+    width: 100%;
+    padding-bottom: 12%;
+    background-image: linear-gradient(rgba(43, 42, 42, 0.3), rgba(12, 12, 12, 0.4)), url("https://img.freepik.com/free-photo/professional-lighting-equipment-movie-set-with-smoke-air_1268-17216.jpg?w=900&t=st=1686173518~exp=1686174118~hmac=d33d2f40f87a4a56cd9c71ab44410787e672ce14036245b682f5ced09a759cfc");
+    // background-image: url("https://newsib.net/wp-content/uploads/2022/11/1619602660_3-phonoteka_org-p-kinematograf-fon-3-700x433.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    // nav {
+    //     // background-color:rgba(15, 15, 15, .2);
+    // }
+}
+
+.slogan {
+    height: 50vh;
+
+    h1 {
+        font-size: 50px;
+    }
+
+    button {
+        width: 33%;
+        border: none;
+    }
+}
