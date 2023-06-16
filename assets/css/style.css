@@ -44,7 +44,7 @@
 header {
   width: 100%;
   padding-bottom: 12%;
-  background-image: linear-gradient(rgba(43, 42, 42, 0.3), rgba(12, 12, 12, 0.4)), url("https://img.freepik.com/free-photo/professional-lighting-equipment-movie-set-with-smoke-air_1268-17216.jpg?w=900&t=st=1686173518~exp=1686174118~hmac=d33d2f40f87a4a56cd9c71ab44410787e672ce14036245b682f5ced09a759cfc");
+  background-image: linear-gradient(rgba(43, 42, 42, 0.3), rgba(12, 12, 12, 0.4)), url("/images/backmovie.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -256,4 +256,4 @@ footer ul li a:hover {
 
 .bg-blue {
   background-color: rgb(5, 15, 32);
-}/*# sourceMappingURL=style.css.map */
+}
