@@ -4,20 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
-
-
-
-
-
+    <div class="container mt-2">
+       <button class="btn btn-primary px-4 ms-2" id="edit">Edit</button>
+        <div class="row flex-column"> 
+            <!-- <input type="text" id="movId" placeholder="Id" class="border-secondary w-50 px-2 py-2 rounded my-2"> -->
+            <input type="text" id="movName" placeholder="Movie Name" class="bg-light w-50 px-2 py-2 rounded my-2"> 
+           <input type="text"  id="movImg" placeholder="Image" class="border-secondary w-50 px-2 py-2 rounded my-2">
+           <input type="text" id="movGenres" placeholder="Genres" class="bg-light w-50 px-2 py-2 rounded my-2">
+           <input type="text" id="movRate" placeholder="IMDb" class="border-secondary w-50 px-2 py-2 rounded my-2">
+           <input type="text" id="movContent" placeholder="Content" class="bg-light w-50 px-2 py-2 rounded my-2">
+           <input type="text" id="movActor" placeholder="Actors" class="border-secondary w-50 px-2 py-2 rounded my-2">
+           <input type="text" id="movYear" placeholder="Year" class="bg-light w-50 px-2 py-2 rounded my-2">
+           <input type="text" id="movDirector" placeholder="Director" class="border-secondary w-50 px-2 py-2 rounded my-2">
+           <input type="text" id="movTrailer" placeholder="Trailer" class="bg-light w-50 px-2 py-2 rounded my-2">
+        
+            
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/main.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCdS3B3Dwtb0K33GQwwFfk_P2BWDoDvxXA",
+          authDomain: "movies-59241.firebaseapp.com",
+          databaseURL: "https://movies-59241-default-rtdb.firebaseio.com",
+          projectId: "movies-59241",
+          storageBucket: "movies-59241.appspot.com",
+          messagingSenderId: "477142513746",
+          appId: "1:477142513746:web:a6c7ae16a52e899c2b078b"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+  
+        
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+          const db = getDatabase();
+          const editBtn=document.getElementById("edit");
+  
+          function editData() {
+              const id = generate_uuidv4();
+              update(ref(db, "film/" + id), {
+                  Name: name.value,
+                  Image: image.value,
+                  Genre: genre.value,
+                  Rate: rate.value,
+                  Content: content.value,
+                  Actor: actor.value,
+                  Year: year.value,
+                  Director: director.value,
+                  Trailer: trailer.value
+              })
+              
+              .then(() => successAlert("Perfect"))
+              
+              .catch((err) => errorAlert("There is a problem"));
+          }
+          editBtn.addEventListener("click", editData);
+  
+      </script>
 </body>
 </html>

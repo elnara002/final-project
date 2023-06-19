@@ -81,15 +81,13 @@
                 Director: director.value,
                 Trailer: trailer.value
             })
-            .then(() => successAlert("Perfect"))
+            .then(successAlert("Perfect"))
             
-            .catch((err) => errorAlert("Have a problem"));
+            .catch((err) => errorAlert("Error"));
         }
         
         createBtn.addEventListener("click", createData);
-       
-
-        createBtn.addEventListener("click",createData);
+    
       </script>
 </body>
 </html>
