@@ -6,6 +6,7 @@
         background-color: transparent;
         color: red;
         transition: 0.4s;
+        outline: 1px solid rgb(216, 26, 36);
     }
 }
 
@@ -53,20 +54,17 @@
 }
 
 header {
-    width: 100%;
-    padding-bottom: 12%;
-    background-image: linear-gradient(rgba(43, 42, 42, 0.3), rgba(12, 12, 12, 0.4)), url("/images/backmovie.png");
-    // background-image: url("https://newsib.net/wp-content/uploads/2022/11/1619602660_3-phonoteka_org-p-kinematograf-fon-3-700x433.jpg");
     background-repeat: no-repeat;
+    background-image: url("/images/movieback.png");
     background-size: cover;
     background-position: center;
-    // nav {
-    //     // background-color:rgba(15, 15, 15, .2);
-    // }
+    nav {
+        background-color:rgba(10, 32, 54);
+    }
 }
 
 .slogan {
-    height: 50vh;
+    height: 98vh;
 
     h1 {
         font-size: 50px;

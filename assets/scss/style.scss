@@ -13,5 +13,43 @@
 }
 
 .bg-blue {
-    background-color: rgb(5, 15, 32);
+    background-color: rgb(12, 39, 66);
+}
+
+
+@media (max-width:768px){
+ .slogan{
+    h1{
+        font-size: 50px;
+    }
+ }
+ .login-card{
+    width: 80%;
+ }
+}
+@media (max-width:576px) {
+    header{
+        background-position: center center;
+        background-size: cover;
+      }
+    .slogan{
+        height: 70vh;
+        h1{
+            font-size: 45px;
+        }
+     }
+     .login-card{
+        width: 80%;
+     }
+}
+@media (max-width:340px) {
+    .slogan{
+        height: 55vh;
+        h1{
+            font-size: 35px;
+        }
+     }
+     .login-card{
+        width: 80%;
+     }
 }

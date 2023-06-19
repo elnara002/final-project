@@ -24,8 +24,8 @@
 <body>
     <header>
         <!-- NavBar Start -->
-        <nav class="navbar navbar-expand-lg navbar-dark p-2">
-            <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark p-2 fixed-top">
+            <div class="container"> 
                 <a class="navbar-brand" href="index.html">
                     <img src="images/logomoov.png" alt="">
                 </a>
@@ -55,7 +55,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="#">Watchlist
+                            <a class="nav-link mx-2" href="wishlist.html">Watchlist
                                 <span class="badge bg-danger">4</span>
                             </a>
                         </li>
@@ -84,21 +84,27 @@
     <!-- Header End -->
     <!-- Section Log In -->
     <section class="login d-flex justify-content-center align-items-center py-5">
-        <div class="login-card d-flex flex-column align-items-center justify-content-center py-5">
+        <div class="login-card col-12 d-flex flex-column align-items-center justify-content-center py-5">
             <h3 class="text-white">Create New Account</h3>
             <div class="d-flex justify-content-evenly">
-                <input type="text" placeholder="First Name" class="mt-2 mb-1 name py-2 px-1">
-                <input type="text" placeholder="Last Name" class="mt-2 mb-1 name py-2 px-1">
+                <input type="text" placeholder="First Name" class="mt-2 mb-1 name py-2 px-1" id="name">
+                <input type="text" placeholder="Last Name" class="mt-2 mb-1 name py-2 px-1" id="surname">
             </div>
-            <input type="text" placeholder="Enter Email" class="mt-2 mb-1 enter py-2 px-1">
-            <input type="password" placeholder="Enter Password" class="mt-2 mb-2 enter py-2 px-1">
-            <input type="password" placeholder="Confirm Password" class="mt-2 mb-2 enter py-2 px-1">
+            <div class="mt-2 mb-1 w-75"><input type="text" placeholder="Enter Email" class="w-100 enter py-2 px-1 email" id="email"></div>
+            <div class="position-relative mt-2 mb-2 w-75">
+                <input type="password" placeholder="Enter Password" class=" enter py-2 px-1 w-100 password" id="pswrd">
+                <i onclick="showPass(this)" class="fa-solid fa-eye" ></i>
+            </div>  
+            <div class="position-relative mt-2 mb-2 w-75">
+                <input type="password" placeholder="Confirm Password" class=" enter py-2 px-1 w-100 password " id="confirm-pswrd">
+                <i onclick="showPass(this)" class="fa-solid fa-eye"></i>
+            </div>    
 
             <div class="mt-2 me-1">
                 <input type="checkbox" name="" id="remember">
                 <label for="remember" class="text-white">I agree with privacy and policy</label>
             </div>
-            <button class="btn btn-red my-2">Sign up</button>
+            <button  class="btn btn-red my-2" onclick="checkSign()" id="signUp">Sign up</button>
 
             <h6 class="mt-3"><a href="login.html">Already have an account?</a></h6>
         </div>
@@ -108,7 +114,7 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-3 col-sm-12">
                     <a href="index.html"><img src="images/logomoov.png" alt=""></a>
                     <p class="text-white mt-4">It is a long established fact that a reader will be distracted by the
                         readable content of a page when looking at its layout.</p>
@@ -123,7 +129,7 @@
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-3 col-sm-12">
                     <ul>
                         <li>
                             <h5>Services</h5>
@@ -135,7 +141,7 @@
                         <li><a href="#">Help</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 contact">
+                <div class="col-lg-3 col-md-3 col-sm-12 contact">
                     <div class="d-flex">
                         <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
                         <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
@@ -169,6 +175,91 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        function showPass(icon){
+    const input = icon.previousElementSibling;
+    if (input.getAttribute("type") == "password") {
+        input.setAttribute("type","text");
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    }
+    else{
+        input.setAttribute("type","password");
+        icon.classList.add('fa-eye');
+        icon.classList.remove('fa-eye-slash');
+        }}
+
+    function checkSign() {
+    const emailInput = document.querySelector(".email");
+    const passwordInputs = document.querySelectorAll(".password");
+    const nameInputs = document.querySelectorAll(".name");
+    const pswrdInput=document.querySelector("#pswrd");
+    const confirmInput=document.querySelector("#confirm-pswrd");
+    
+
+    let hasError = false;
+
+    if (!(emailInput.value.includes("@")) || emailInput.value.trim() === "") {
+        emailInput.style.border = "2px solid red";
+        hasError = true;
+    } else {
+        emailInput.style.border = "";
+    }
+    passwordInputs.forEach((passwordInput) => {
+        if (!(passwordInput.value.length >= 6) || passwordInput.value.trim() === "") {
+            passwordInput.style.border = "2px solid red";
+            hasError = true;
+        } else {
+            passwordInput.style.border = "";
+        }
+    });
+
+    nameInputs.forEach((nameInput) => {
+        if (nameInput.value.trim() === "") {
+            nameInput.style.border = "2px solid red";
+            hasError = true;
+        } else {
+            nameInput.style.border = "";
+        }
+    });
+    if (!(pswrdInput.value === confirmInput.value)) {
+        pswrdInput.style.border = "2px solid red";
+        confirmInput.style.border = "2px solid red";
+        hasError = true;
+    } else {
+        pswrdInput.style.border = "";
+        confirmInput.style.border = "";
+    }
+
+    if (!hasError) {
+    //    Continue Register
+    } 
+    createUser();
+    const name = document.getElementById('name');
+    const surname = document.getElementById('surname');
+    const email = document.getElementById('email');
+    const pass = document.getElementById('pswrd');
+    let users = {
+        name: name.value,
+        surname: surname.value,
+        email: email.value,
+        password: pass.value
+    }
+    let user = JSON.parse(localStorage.getItem('user'));
+    user.push(users);
+    localStorage.setItem('user', JSON.stringify(user));
+    
+}
+function createUser() {
+    if (localStorage.getItem('user') == null) {
+        localStorage.setItem('user', '[]')
+    }
+
+
+    
+       
+}
+</script>
 </body>
 
 </html>
