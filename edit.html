@@ -53,7 +53,8 @@
         
         import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
         const db = getDatabase();
-        
+        const currentFilm = window.location.search.substring(1)
+        console.log(currentFilm);
         const name = document.getElementById("movName");
         const image = document.getElementById("movImg");
         const genre = document.getElementById("movGenres");
@@ -65,11 +66,25 @@
         const trailer = document.getElementById("movTrailer");
         const editBtn = document.getElementById("edit");
         
+        function getData() {
+            get(ref(db, "film/" + currentFilm))
+            .then(data => {
+                name.value = data.Name,
+                image.value = data.Image,
+                 genre.value=data.Genre,
+                rate.value=data.Rate,
+                content.value=data.Content,
+                actor.value=data.Actor,
+                year.value=data.Year,
+                director.value=data.Director,
+                trailer.value=data.Trailer
+            })
+            .catch(err => errorAlert("Have a problem"))
+        }
        
 
         function updateData() {
-            const id = generate_uuidv4();
-            update(ref(db, "film/" + id ), {
+            update(ref(db, "film/" + currentFilm ), {
                 Name: name.value,
                 Image: image.value,
                 Genre: genre.value,
@@ -84,7 +99,7 @@
                 .catch(err => errorAlert("Have a problem"))
         }
             editBtn.addEventListener("click", updateData);
-    
+
       </script>
 </body>
 </html>

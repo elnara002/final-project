@@ -256,7 +256,7 @@
               Object.values(films).forEach((film) => {
                 movies.innerHTML +=
                   `<div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card position-relative">
-                    <a href="details.html">
+                    <a href="details.html?${film.id}">
                         <img src="${film.Image}"
                         alt="" class="position-relative" ></a>
                         <a href="#"><i class="fa-solid fa-bookmark position-absolute"></i></a>

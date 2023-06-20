@@ -89,7 +89,7 @@
     <!-- Section Watchlist -->
     <section>
         <div class="container my-3">
-            <div class="row" id="wishlist">
+            <div class="row" id="wishList">
                 
             </div>
         </div>
@@ -186,54 +186,50 @@
         
         import { getDatabase, set, ref, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
         const db = getDatabase();
+        const wishListCard=document.getElementById("wishListCard")   
+        const id = generate_uuidv4();
         
-
-     const wishListCard=document.getElementById("wishListCard")        
-            function addWishlist() {
-      const id = generate_uuidv4();
-    //   const result = getCookie('basket')
-    //         if (result != "") {
-    //             let basket = JSON.parse(result);
-    //             basket.forEach(item => {
-    //                 get(ref(db, 'products/'+item.id)).then(data=>{
-    //                     $('.list-group-vertical').append(`<li class="list-group-item">
-    //                         <img width="25" src='${data.val().img}'/> <span>${data.val().name}</span> - <span>Count : ${item.count}</span>
-    //                     </li>`)
-    //                 })
-    //             });
-    //         }
-    //         else{
-    //             $('.list-group-vertical').append(`<li class="list-group-item">Səbət boşdur</li>`)
-    //         }
-      get(ref(db, "film/"))
-        .then((data) => {
-          const films = data.val();
-            wishListCard.innerHTML +=
-              `<div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card">
-                    <a href="details.html"><img src="${film.Image}"
+        function getList(){
+            const result = getCookie('list')
+            if (result != "") {
+                let list = JSON.parse(result);
+                list.forEach(item => {
+                  console.log(item);
+                    get(ref(db, 'film/'+ id)).then(data=>{
+                      console.log(data.val());
+                        $('#wishList').append(`
+                        <div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card ">
+                    <a href="details.html">
+                        <img src="${film.Image}"
                         alt=""></a>
-                </div>`;
-          });
-        };
-    
-    addWishlist();
-
-    // function getCookie(cname) {
-    //         let name = cname + "=";
-    //         let decodedCookie = decodeURIComponent(document.cookie);
-    //         let ca = decodedCookie.split(';');
-    //         for (let i = 0; i < ca.length; i++) {
-    //             let c = ca[i];
-    //             while (c.charAt(0) == ' ') {
-    //                 c = c.substring(1);
-    //             }
-    //             if (c.indexOf(name) == 0) {
-    //                 return c.substring(name.length, c.length);
-    //             }
-    //         }
-    //         return "";
-    //     }
-    
+                        <p class="fs-5 mt-1 ms-2 fw-bolder filmName" >${film.Name}</p>
+                </div>
+                        `)
+                    })
+                });
+            }
+            else{
+              $('#wishList').append(`<tr>
+          <td>No Item</td>
+           </tr>`)
+            }
+        }
+        getList();
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
       </script>
 </body>
 

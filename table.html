@@ -79,9 +79,9 @@
           Object.values(films).forEach((film) => {
             tbody.innerHTML +=
               `<tr>
-                                <th scope="row">${id}</th>
+                                <th scope="row">${film.id}</th>
                                 <td>${film.Name}</td>
-                                <td><img src="${film.Image}" class="w-100"></td>
+                                <td><img src="${film.Image}" class="w-75"></td>
                                 <td>${film.Genre}</td>
                                 <td>${film.Rate}</td>
                                 <td>${film.Content}</td>
@@ -89,13 +89,34 @@
                                 <td>${film.Year}</td>
                                 <td>${film.Director}</td>
                                 <td>${film.Trailer}</td>
-                                <td><button class="btn btn-info" id="edit">Edit</button><button id="delete" class="btn btn-danger">Del</button></td>
+                                <td><a href="edit.html?${film.id}" class="btn btn-info">Edit</a><button class="btn btn-danger">Del</button></td>
                             </tr>`;
           });
+          deleteData();
         });
     }
+     const deleteBtn=document.getElementById("delete")
+    
+     function deleteData() {
+        window.addEventListener('click', function(e) {
+          const delBtn = e.target.closest('.btn-danger')
+          const FilmId = delBtn.parentElement.parentElement.children[0].innerHTML;
+          console.log(FilmId);
+          remove(ref(db, `film/${FilmId}`))
+            .then(res => {
+              if (res.ok) {
+                successAlert("Perfect")
+              }
+            })
+            .catch(err => errorAlert("Have a problem"))
+        })
+      };
+      
+          
+    
+
     FindAll();
-    deleteBtn.addEventListener('click', deleteData);
+   
 
   </script>
 </body>
