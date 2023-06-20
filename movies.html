@@ -111,7 +111,7 @@
                             Genres
                         </a>
 
-                        <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuLink">
+                        <ul class="dropdown-menu scrollable-menu genre" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item " href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Adventure</a></li>
                             <li><a class="dropdown-item" href="#">Animation</a></li>
@@ -151,22 +151,13 @@
                             id="searchInp">
                         <i class="fa-solid fa-magnifying-glass position-absolute "></i>
                     </div>
-
                 </div>
-
-
-
             </div>
         </div>
 
         <div class="container mt-3">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card position-relative">
-                    <a href="details.html"><img src="https://c4.wallpaperflare.com/wallpaper/411/347/616/movies-hollywood-movies-wallpaper-preview.jpg"
-                        alt="" class="position-relative"></a>
-                        <a href="#"><i class="fa-solid fa-bookmark position-absolute"></i></a>
-                        <p class="fs-5 mt-1 ms-2 fw-bolder">Interstellar</p>
-                </div>
+            <div class="row" id="moviesAll">
+                
             </div>
         </div>
 
@@ -223,10 +214,7 @@
         </div>
     </footer>
 
-
-
-
-    <script src=" https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"
         integrity="sha512-2sI5N95oT62ughlApCe/8zL9bQAXKsPPtZZI2KE3dznuZ8HpE2gTMHYzyVN7OoSPJCM1k9ZkhcCo3FvOirIr2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -238,6 +226,64 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="assets/js/main.js"></script>
-</body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCdS3B3Dwtb0K33GQwwFfk_P2BWDoDvxXA",
+          authDomain: "movies-59241.firebaseapp.com",
+          databaseURL: "https://movies-59241-default-rtdb.firebaseio.com",
+          projectId: "movies-59241",
+          storageBucket: "movies-59241.appspot.com",
+          messagingSenderId: "477142513746",
+          appId: "1:477142513746:web:a6c7ae16a52e899c2b078b"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        import { getDatabase, set, ref, update, remove, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+        const db = getDatabase();
+
+        const movies = document.getElementById("moviesAll");
+        function moviesAll() {
+          const id = generate_uuidv4();
+          get(ref(db, "film/"))
+            .then((data) => {
+              const films = data.val();
+              Object.values(films).forEach((film) => {
+                movies.innerHTML +=
+                  `<div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card position-relative">
+                    <a href="details.html">
+                        <img src="${film.Image}"
+                        alt="" class="position-relative" ></a>
+                        <a href="#"><i class="fa-solid fa-bookmark position-absolute"></i></a>
+                        <p class="fs-5 mt-1 ms-2 fw-bolder filmName" >${film.Name}</p>
+                </div>`;
+              });
+            });
+        }
+        moviesAll();
+    
+
+        function genreSelect(btn) {
+  const selectedGenre = btn.textContent.toLowerCase();
+  const filmCards = document.querySelectorAll('.film-card');
+
+  filmCards.forEach(card => {
+    const movieGenre = card.dataset.genre.toLowerCase();
+
+    if (selectedGenre === movieGenre) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+      </script>
+
 
 </html>

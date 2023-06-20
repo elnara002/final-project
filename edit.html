@@ -48,33 +48,43 @@
         };
       
         // Initialize Firebase
+        
         const app = initializeApp(firebaseConfig);
-  
         
         import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
-          const db = getDatabase();
-          const editBtn=document.getElementById("edit");
-  
-          function editData() {
-              const id = generate_uuidv4();
-              update(ref(db, "film/" + id), {
-                  Name: name.value,
-                  Image: image.value,
-                  Genre: genre.value,
-                  Rate: rate.value,
-                  Content: content.value,
-                  Actor: actor.value,
-                  Year: year.value,
-                  Director: director.value,
-                  Trailer: trailer.value
-              })
-              
-              .then(() => successAlert("Perfect"))
-              
-              .catch((err) => errorAlert("There is a problem"));
-          }
-          editBtn.addEventListener("click", editData);
-  
+        const db = getDatabase();
+        
+        const name = document.getElementById("movName");
+        const image = document.getElementById("movImg");
+        const genre = document.getElementById("movGenres");
+        const rate = document.getElementById("movRate");
+        const content = document.getElementById("movContent");
+        const actor = document.getElementById("movActor");
+        const year = document.getElementById("movYear");
+        const director = document.getElementById("movDirector");
+        const trailer = document.getElementById("movTrailer");
+        const editBtn = document.getElementById("edit");
+        
+       
+
+        function updateData() {
+            const id = generate_uuidv4();
+            update(ref(db, "film/" + id ), {
+                Name: name.value,
+                Image: image.value,
+                Genre: genre.value,
+                Rate: rate.value,
+                Content: content.value,
+                Actor: actor.value,
+                Year: year.value,
+                Director: director.value,
+                Trailer: trailer.value
+            })
+                .then(successAlert("Perfect"))
+                .catch(err => errorAlert("Have a problem"))
+        }
+            editBtn.addEventListener("click", updateData);
+    
       </script>
 </body>
 </html>

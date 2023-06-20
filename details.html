@@ -92,53 +92,10 @@
     <section class="py-4 details">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 poster">
-
-                    <img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg"
-                        alt="">
-                </div>
-                <div class="col-lg-8 col-md-12 d-flex flex-column">
-                    <div class="col-12 content my-1 pt-2">
-                        <h2>Interstaller</h2>
-                        <p>Onlarla yaşayan Büyükbaba Donald çocuklara göz kulak olurken, daha 10 yaşında olan kızı Murph
-                            insanı hayretlere düşüren bir zekaya ve altıncı his yeteneğine sahiptir. Geride bıraktığı
-                            bilim insanı kariyerini özleyen Cooper'un karşısına geri çevrilmesi oldukça güç bir teklif
-                            çıkar. Cooper bu teklifi bir fırsattan ziyade bir görev gibi benimsemiştir. Çünkü Cooper
-                            başta ailesinin, sonra da tüm insanlığın emniyetini ve hayatta kalmalarını istemektedir. Bu
-                            görevi kabul etmek onun için çok zor bir karar olsa da insanlık adına büyük bir görevin
-                            yapılması gerektiği gerçeği onu sorumlu ve mecbur hissettirecek, ekibini toplayıp uzayın
-                            sınırsız derinliklerine dalması için harekete geçirecektir.
-                        </p>
-                    </div>
-                    <div class="col-12 features">
-                        <table class="table table-primary table-striped">
-                            <tr>
-                                <td class="direction">Director</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td class="direction">Actors</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td class="direction">Genres</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td class="direction">Year</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td class="direction">Imdb</td>
-                                <td>: </td>
-                            </tr>
-                        </table>
-                    </div>
+                <div class="row" id="movieDetails">
 
                 </div>
-                <div class="col-12">
-                    <iframe src="https://www.youtube.com/embed/zSWdZVtXT7E" frameborder="0"></iframe>
-                </div>
+
 
                 <div class="col-12 mt-5">
                     <h2 class="mb-3 border-bottom">Add Comment</h2>
@@ -255,6 +212,79 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="assets/js/main.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCdS3B3Dwtb0K33GQwwFfk_P2BWDoDvxXA",
+            authDomain: "movies-59241.firebaseapp.com",
+            databaseURL: "https://movies-59241-default-rtdb.firebaseio.com",
+            projectId: "movies-59241",
+            storageBucket: "movies-59241.appspot.com",
+            messagingSenderId: "477142513746",
+            appId: "1:477142513746:web:a6c7ae16a52e899c2b078b"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        import { getDatabase, set, ref, update, remove, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+        const db = getDatabase();
+
+        const details = document.getElementById("movieDetails");
+        const filmId = window.location.search.substring(4)
+        function movieDetails() {
+            const id = generate_uuidv4();
+            get(ref(db, "film/" + filmId),)
+                .then((data) => {
+                    details.innerHTML +=
+                        `<div class="col-lg-4 col-md-6 poster">
+
+                        <img src="${film.Image}"
+                            alt="">
+                    </div>
+                    <div class="col-lg-8 col-md-12 d-flex flex-column">
+                        <div class="col-12 content my-1 pt-2">
+                            <h2>${film.Name}</h2>
+                            <p>${film.Content}</p>
+                        </div>
+                        <div class="col-12 features">
+                            <table class="table table-primary table-striped">
+                                <tr>
+                                    <td class="direction">Director</td>
+                                    <td>: ${film.Director}</td>
+                                </tr>
+                                <tr>
+                                    <td class="direction">Actors</td>
+                                    <td>: ${film.Actor}</td>
+                                </tr>
+                                <tr>
+                                    <td class="direction">Genres</td>
+                                    <td>: ${film.Genre}</td>
+                                </tr>
+                                <tr>
+                                    <td class="direction">Year</td>
+                                    <td>: ${film.Year}</td>
+                                </tr>
+                                <tr>
+                                    <td class="direction">Imdb</td>
+                                    <td>: ${film.Rate}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="col-12">
+                        <iframe src="https://www.youtube.com/embed/${film.Trailer}" frameborder="0"></iframe>
+                    </div>`;
+                });
+        };
+        movieDetails();
+
+    </script>
+
 </body>
 
 </html>

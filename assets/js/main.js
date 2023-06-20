@@ -81,3 +81,17 @@ function generate_uuidv4() {
             return v.toString(16);
         });
 }
+
+$(document).ready(function() {
+    $("#searchInp").keyup(function() {
+        var search = $(this).val().toLowerCase();
+        $(".filmName").each(function() {
+            var text = $(this).text().toLowerCase();
+            if (text.includes(search)) {
+                $(this).parent().show();
+            } else {
+                $(this).parent().hide();
+            }
+        });
+    });
+  });
