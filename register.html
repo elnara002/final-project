@@ -54,11 +54,6 @@
                                 <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="wishlist.html">Watchlist
-                                <span class="badge bg-danger">4</span>
-                            </a>
-                        </li>
                     </ul>
                     <div class="ms-auto  d-lg-inline-flex">
                         <a href="login.html"><button class="btn text-white" id="login">Log in</button></a>
@@ -247,12 +242,16 @@
     }
     let user = JSON.parse(localStorage.getItem('user'));
     user.push(users);
-    localStorage.setItem('user', JSON.stringify(user));
-    
+    localStorage.setItem('user', JSON.stringify(user)); 
+    window.location.href = "index.html";
+    document.getElementById('registerButton').style.display = 'none';
+    document.getElementById('loginButton').style.display = 'none';
 }
 function createUser() {
     if (localStorage.getItem('user') == null) {
         localStorage.setItem('user', '[]')
+       
+
     }
 
 

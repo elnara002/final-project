@@ -55,11 +55,6 @@
                                 <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="wishlist.html">Watchlist
-                                <span class="badge bg-danger">4</span>
-                            </a>
-                        </li>
                     </ul>
                     <div class="ms-auto  d-lg-inline-flex">
                         <a href="login.html"><button class="btn text-white" id="login">Log in</button></a>
@@ -92,8 +87,8 @@
     <section class="py-4 details">
         <div class="container">
             <div class="row">
-                <div class="row" id="movieDetails">
-
+                <div class="row" id="detailsMovie">
+                
                 </div>
 
 
@@ -188,103 +183,102 @@
                     </div>
                     <a href="tel:+1 800 603 6035"> +1 800 603 6035 </a>
                     <a href="mailto:mail@demolink.org"> mail@demolink.org </a>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="end mt-5 d-flex justify-content-center align-items-center text-white">
-            <h5>© 2023 All Rights Reserved. Terms of Use.</h5>
-        </div>
-    </footer>
-
-
-
-
-    <script src=" https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"
-        integrity="sha512-2sI5N95oT62ughlApCe/8zL9bQAXKsPPtZZI2KE3dznuZ8HpE2gTMHYzyVN7OoSPJCM1k9ZkhcCo3FvOirIr2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="assets/js/main.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCdS3B3Dwtb0K33GQwwFfk_P2BWDoDvxXA",
-            authDomain: "movies-59241.firebaseapp.com",
-            databaseURL: "https://movies-59241-default-rtdb.firebaseio.com",
-            projectId: "movies-59241",
-            storageBucket: "movies-59241.appspot.com",
-            messagingSenderId: "477142513746",
-            appId: "1:477142513746:web:a6c7ae16a52e899c2b078b"
-        };
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        import { getDatabase, set, ref, update, remove, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
-        const db = getDatabase();
-
-        const details = document.getElementById("movieDetails");
-        const filmId = window.location.search.substring(4)
-        function movieDetails() {
-            const id = generate_uuidv4();
-            get(ref(db, "film/" + filmId),)
-                .then((data) => {
-                    details.innerHTML +=
-                        `<div class="col-lg-4 col-md-6 poster">
-
-                        <img src="${film.Image}"
-                            alt="">
                     </div>
-                    <div class="col-lg-8 col-md-12 d-flex flex-column">
-                        <div class="col-12 content my-1 pt-2">
-                            <h2>${film.Name}</h2>
-                            <p>${film.Content}</p>
-                        </div>
-                        <div class="col-12 features">
-                            <table class="table table-primary table-striped">
-                                <tr>
-                                    <td class="direction">Director</td>
-                                    <td>: ${film.Director}</td>
-                                </tr>
-                                <tr>
-                                    <td class="direction">Actors</td>
-                                    <td>: ${film.Actor}</td>
-                                </tr>
-                                <tr>
-                                    <td class="direction">Genres</td>
-                                    <td>: ${film.Genre}</td>
-                                </tr>
-                                <tr>
-                                    <td class="direction">Year</td>
-                                    <td>: ${film.Year}</td>
-                                </tr>
-                                <tr>
-                                    <td class="direction">Imdb</td>
-                                    <td>: ${film.Rate}</td>
-                                </tr>
-                            </table>
-                        </div>
-
                     </div>
-                    <div class="col-12">
-                        <iframe src="https://www.youtube.com/embed/${film.Trailer}" frameborder="0"></iframe>
-                    </div>`;
-                });
-        };
-        movieDetails();
+                    </div>
+                    <hr>
+                    <div class="end mt-5 d-flex justify-content-center align-items-center text-white">
+                        <h5>© 2023 All Rights Reserved. Terms of Use.</h5>
+                    </div>
+                    </footer>
+                    
+                    
+                    
+                    
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+                        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+                        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"
+                        integrity="sha512-2sI5N95oT62ughlApCe/8zL9bQAXKsPPtZZI2KE3dznuZ8HpE2gTMHYzyVN7OoSPJCM1k9ZkhcCo3FvOirIr2A=="
+                        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+                        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+                        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                    
+                    <script src="assets/js/main.js"></script>
+                    <script type="module">
+                        // Import the functions you need from the SDKs you need
+                        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+                        // TODO: Add SDKs for Firebase products that you want to use
+                        // https://firebase.google.com/docs/web/setup#available-libraries
+                    
+                        // Your web app's Firebase configuration
+                        const firebaseConfig = {
+                          apiKey: "AIzaSyCdS3B3Dwtb0K33GQwwFfk_P2BWDoDvxXA",
+                          authDomain: "movies-59241.firebaseapp.com",
+                          databaseURL: "https://movies-59241-default-rtdb.firebaseio.com",
+                          projectId: "movies-59241",
+                          storageBucket: "movies-59241.appspot.com",
+                          messagingSenderId: "477142513746",
+                          appId: "1:477142513746:web:a6c7ae16a52e899c2b078b"
+                        };
+                        // Initialize Firebase
+                        const app = initializeApp(firebaseConfig);
+                        import { getDatabase, set, ref, update, remove, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+                        const db = getDatabase();
+                         const currentFilm = window.location.search.substring(1)
+                        const details = document.getElementById("detailsMovie");
+                        function detailsAll() {
+                          const id = generate_uuidv4();
+                          get(ref(db,"film/"+ currentFilm))
+                            .then((film) => {
+                                details.innerHTML =
+                                  `<div class="col-lg-4 col-md-6 poster">
 
-    </script>
+<img src="${film.val().Image}"
+    alt="">
+</div>
+<div class="col-lg-8 col-md-12 d-flex flex-column">
+<div class="col-12 content my-1 pt-2">
+    <h2>${film.val().Name}</h2>
+    <p>${film.val().Content}</p>
+</div>
+<div class="col-12 features">
+    <table class="table table-primary table-striped">
+        <tr>
+            <td class="direction">Director</td>
+            <td>: ${film.val().Director}</td>
+        </tr>
+        <tr>
+            <td class="direction">Actors</td>
+            <td>: ${film.val().Actor}</td>
+        </tr>
+        <tr>
+            <td class="direction">Genres</td>
+            <td>: ${film.val().Genre}</td>
+        </tr>
+        <tr>
+            <td class="direction">Year</td>
+            <td>: ${film.val().Year}</td>
+        </tr>
+        <tr>
+            <td class="direction">Imdb</td>
+            <td>: ${film.val().Rate}</td>
+        </tr>
+    </table>
+</div>
 
-</body>
-
-</html>
+</div>
+<div class="col-12">
+<iframe src="https://www.youtube.com/embed/${film.val().Trailer}" frameborder="0"></iframe>
+</div>`;
+                              });
+                            };
+                        detailsAll();
+                          </script>
+                    
+                    </body>
+                    </html>

@@ -13,7 +13,7 @@ $('.soon .owl-carousel').owlCarousel({
             items:5
         }
     }
-})
+});
 var owl = $('.owl-carousel');
 owl.owlCarousel({
     items: 2,

@@ -54,11 +54,6 @@
                                 <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="wishlist.html">Watchlist
-                                <span class="badge bg-danger">4</span>
-                            </a>
-                        </li>
                     </ul>
                     <div class="ms-auto  d-lg-inline-flex">
                         <a href="register.html"><button class="btn btn-red rounded-pill mx-2">
@@ -201,13 +196,19 @@ function checkLogin() {
     }
 
     createUser();
-
+    const isAdmin = (passwordInput.value === "123456" && emailInput.value === "rizvanovaelnara15@gmail.com");
     const user = JSON.parse(localStorage.getItem('user'));
     const result = user.find(u => u.email == emailInput.value && u.password == passwordInput.value);
     if (result != undefined) {
         document.cookie = `name=${result.name}`;
         document.cookie = `surname=${result.surname}`;
-        // window.location.href = "user.html";
+        window.location.href = "index.html";
+    }
+
+    if(isAdmin){
+        window.location.href = "admin.html"
+    }else {
+        window.location.href = "index.html";
     }
 }
             

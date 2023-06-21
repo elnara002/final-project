@@ -55,11 +55,6 @@
                                 <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="wishlist.html">Watchlist
-                                <span class="badge bg-danger">4</span>
-                            </a>
-                        </li>
                     </ul>
                     <div class="ms-auto  d-lg-inline-flex">
                         <a href="login.html"><button class="btn text-white" id="login">Log in</button></a>
@@ -96,21 +91,8 @@
                     <div class="dropdown mx-2">
                         <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Years
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">1993-2003</a></li>
-                            <li><a class="dropdown-item" href="#">2004-2013</a></li>
-                            <li><a class="dropdown-item" href="#">2014-2023</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown mx-2">
-                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
                             Genres
                         </a>
-
                         <ul class="dropdown-menu scrollable-menu genre" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item " href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Adventure</a></li>
@@ -127,27 +109,10 @@
                             <li><a class="dropdown-item" href="#">Western</a></li>
                         </ul>
                     </div>
-                    <div class="dropdown mx-2">
-                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Imdb
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">3 or higher</a></li>
-                            <li><a class="dropdown-item" href="#">4 or higher</a></li>
-                            <li><a class="dropdown-item" href="#">5 or higher</a></li>
-                            <li><a class="dropdown-item" href="#">6 or higher</a></li>
-                            <li><a class="dropdown-item" href="#">7 or higher</a></li>
-                            <li><a class="dropdown-item" href="#">8 or higher</a></li>
-                            <li><a class="dropdown-item" href="#">9 or higher</a></li>
-
-                        </ul>
-                    </div>
                 </div>
                 <div class="col-4">
                     <div class="d-flex justify-content-end position-relative">
-                        <input type="text" placeholder="Search Movies" class="p-1 px-2 position-relative w-75"
+                        <input type="text" placeholder="Search Movies" class="p-1 px-2 py-1 w-100 position-relative"
                             id="searchInp">
                         <i class="fa-solid fa-magnifying-glass position-absolute "></i>
                     </div>
@@ -224,6 +189,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="assets/js/filter.js"></script>
 
     <script src="assets/js/main.js"></script>
     <script type="module">
@@ -248,6 +214,8 @@
         const db = getDatabase();
 
         const movies = document.getElementById("moviesAll");
+        const currentFilm = window.location.search.substring(1)
+
         function moviesAll() {
           const id = generate_uuidv4();
           get(ref(db, "film/"))
@@ -255,35 +223,17 @@
               const films = data.val();
               Object.values(films).forEach((film) => {
                 movies.innerHTML +=
-                  `<div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card position-relative">
-                    <a href="details.html?${film.id}">
+                  `<div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card">
+                    <a href="details.html?${film.id}" target="_blank">
                         <img src="${film.Image}"
-                        alt="" class="position-relative" ></a>
-                        <a href="#"><i class="fa-solid fa-bookmark position-absolute"></i></a>
-                        <p class="fs-5 mt-1 ms-2 fw-bolder filmName" >${film.Name}</p>
+                        alt=""></a>
+                        <span class="ms-2 mt-1 filmGenre fst-italic">${film.Genre}</span>
+                        <p class="fs-6 ms-2 fw-bolder filmName" >${film.Name}</p>
+                        
                 </div>`;
               });
             });
         }
         moviesAll();
-    
-
-        function genreSelect(btn) {
-  const selectedGenre = btn.textContent.toLowerCase();
-  const filmCards = document.querySelectorAll('.film-card');
-
-  filmCards.forEach(card => {
-    const movieGenre = card.dataset.genre.toLowerCase();
-
-    if (selectedGenre === movieGenre) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-}
-
-      </script>
-
-
+          </script>
 </html>

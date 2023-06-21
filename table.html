@@ -69,7 +69,6 @@
     import { getDatabase, set, ref, update, remove, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
     const db = getDatabase();
 
-
     const tbody = document.getElementById("tbody");
     function FindAll() {
       const id = generate_uuidv4();
@@ -105,11 +104,12 @@
           remove(ref(db, `film/${FilmId}`))
             .then(res => {
               if (res.ok) {
-                successAlert("Perfect")
+                
               }
-            })
-            .catch(err => errorAlert("Have a problem"))
+            }) 
+            successAlert("Perfect");
         })
+        .catch(err => errorAlert("Have a problem"))
       };
       
           

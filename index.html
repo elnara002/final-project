@@ -54,11 +54,6 @@
                                 <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="wishlist.html">Watchlist
-                                <span class="badge bg-danger">4</span>
-                            </a>
-                        </li>
                     </ul>
                     <div class="ms-auto  d-lg-inline-flex">
                         <a href="login.html"><button class="btn text-white" id="login">Log in</button></a>
@@ -337,7 +332,7 @@
         const app = initializeApp(firebaseConfig);
         import { getDatabase, set, ref, update, remove, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
         const db = getDatabase();
-
+  
 
         const trend = document.getElementById("trendMovie");
         function trendMovie() {
@@ -350,9 +345,10 @@
                 const filmKey = filmKeys[i];
                 const film = films[filmKey];
                 trend.innerHTML +=
-                    `<div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card position-relative">
-                        <img src="${film.Image}" alt="" class="position-relative">
-                        <a href="#"><i class="fa-solid fa-bookmark position-absolute"></i></a>
+                    `<div class="col-lg-3 col-md-6 col-sm-12 my-2  film-card">
+                        <a href="details.html?${film.id}" target="_blank">
+                        <img src="${film.Image}"
+                        alt="" ></a>
                     </div>`;
             }
         });

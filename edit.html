@@ -51,7 +51,7 @@
         
         const app = initializeApp(firebaseConfig);
         
-        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+        import { getDatabase, set, ref, update, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
         const db = getDatabase();
         const currentFilm = window.location.search.substring(1)
         console.log(currentFilm);
@@ -99,6 +99,7 @@
                 .catch(err => errorAlert("Have a problem"))
         }
             editBtn.addEventListener("click", updateData);
+            getData();
 
       </script>
 </body>
