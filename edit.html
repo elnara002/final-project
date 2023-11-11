@@ -69,7 +69,9 @@
         
         function getData() {
             get(ref(db, "film/" + currentFilm))
-            .then(data => {
+            .then(res => {
+                const data = res.val()
+                console.log(data);
                 name.value = data.Name,
                 image.value = data.Image,
                  genre.value=data.Genre,
